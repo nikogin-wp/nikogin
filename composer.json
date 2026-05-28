@@ -10,7 +10,8 @@
     }
   ],
   "require": {
-    "php": "^8.2"
+    "php": "^8.2",
+    "nikoginwp/framework": "*"
   },
   "repositories": [
     {

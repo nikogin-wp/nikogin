@@ -1,0 +1,52 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "fdf3715b51602a65de3f31a0a6ca2aba",
+    "packages": [
+        {
+            "name": "nikoginwp/framework",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "../framework",
+                "reference": "fc7ba5d71d1efc11322047d3495997c8b174bea1"
+            },
+            "require": {
+                "php": "^8.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nikogin\\Framework\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nikola Devic",
+                    "email": "devicnikola01@gmail.com"
+                }
+            ],
+            "description": "Nikogin WordPress plugin framework",
+            "transport-options": {
+                "relative": true
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": [],
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": {
+        "php": "^8.2"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

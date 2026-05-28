@@ -18,7 +18,7 @@ if (!defined('NIKOGIN_SLUG'))
     define('NIKOGIN_SLUG', 'nikogin');
 
 if (!defined('NIKOGIN_CONFIG_DIR'))
-    define('NIKOGIN_CONFIG_DIR', NIKOGIN_DIR . 'app/config/');
+    define('NIKOGIN_CONFIG_DIR', NIKOGIN_DIR . 'config/');
 
 if (!defined('NIKOGIN_NAMESPACE'))
     define('NIKOGIN_NAMESPACE', 'ng/v1');
