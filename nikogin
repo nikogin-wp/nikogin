@@ -4,21 +4,5 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 use Nikogin\Framework\Console\Application;
-use Nikogin\Framework\Console\Commands\MakeController;
-use Nikogin\Framework\Console\Commands\MakeJob;
-use Nikogin\Framework\Console\Commands\MakeListener;
-use Nikogin\Framework\Console\Commands\MakeMigration;
-use Nikogin\Framework\Console\Commands\MakeProvider;
-use Nikogin\Framework\Console\Commands\MakeRepository;
-use Nikogin\Framework\Console\Commands\MakeShortcode;
 
-(new Application(__DIR__, [
-    'make:repository' => MakeRepository::class,
-    'make:listener'   => MakeListener::class,
-    'make:controller' => MakeController::class,
-    'make:migration'  => MakeMigration::class,
-    'make:job'        => MakeJob::class,
-    'make:shortcode'  => MakeShortcode::class,
-    'make:provider'   => MakeProvider::class,
-]))->run($argv);
-
+(new Application(__DIR__))->run($argv);
