@@ -19,7 +19,7 @@ class Router implements Bootable
      */
     public static function run(): void
     {
-        foreach (glob(NIKOGIN_FILE . 'app/routes/*.php') as $routeFile) {
+        foreach (glob(NIKOGIN_DIR . 'app/routes/*.php') as $routeFile) {
             require_once $routeFile;
         }
     }
