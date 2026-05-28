@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "es2024",
+        "module": "es2022",
+        "lib": ["ES2024", "DOM", "DOM.Iterable"],
+        "moduleResolution": "node",
+        "baseUrl": ".",
+        "paths": {
+            "@ts/*": ["resources/ts/*"],
+            "@scss/*": ["resources/scss/*"]
+        },
+        "outDir": "./assets/",
+        "allowJs": true,
+        "noEmit": true,
+        "strict": true,
+        "noImplicitAny": false,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true
+    },
+    "include": ["resources/**/*"],
+    "exclude": ["node_modules", "assets"]
+}

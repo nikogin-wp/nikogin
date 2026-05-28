@@ -12,14 +12,3 @@ Router::add('/examples', [
     'permission_callback' => '__return_true',
 ]);
 
-Router::add('/articles', [
-    'methods'             => WP_REST_Server::READABLE,
-    'callback'            => [Container::get(ArticleController::class), 'index'],
-    'permission_callback' => '__return_true',
-]);
-
-Router::add('/articles', [
-    'methods'             => WP_REST_Server::CREATABLE,
-    'callback'            => [Container::get(ArticleController::class), 'store'],
-    'permission_callback' => '__return_true',
-]);

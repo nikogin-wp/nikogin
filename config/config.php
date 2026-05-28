@@ -25,4 +25,6 @@ return [
     'version'        => NIKOGIN_VERSION,
     'prefix'         => NIKOGIN_PREFIX,
     'resources_path' => NIKOGIN_DIR . 'resources',
+    'build_path'    => NIKOGIN_DIR . 'build',
+    'build_url'     => NIKOGIN_URL . 'build',
 ];
