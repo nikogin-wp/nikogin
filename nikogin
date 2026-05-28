@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Nikogin\Framework\Console\Application;
+use Nikogin\Framework\Console\Commands\MakeRepository;
+
+$app = new Application(__DIR__);
+$app->add(new MakeRepository());
+$app->run($argv);
