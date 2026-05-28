@@ -20,8 +20,9 @@
  */
 
 return [
-    'namespace' => NIKOGIN_NAMESPACE,
-    'slug'      => NIKOGIN_SLUG,
-    'version'   => NIKOGIN_VERSION,
-    'prefix'    => NIKOGIN_PREFIX,
+    'namespace'      => NIKOGIN_NAMESPACE,
+    'slug'           => NIKOGIN_SLUG,
+    'version'        => NIKOGIN_VERSION,
+    'prefix'         => NIKOGIN_PREFIX,
+    'resources_path' => NIKOGIN_DIR . 'resources',
 ];

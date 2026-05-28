@@ -3,6 +3,7 @@
 namespace Nikogin\Controllers\Dashboards\Menu;
 
 use Nikogin\Framework\Abstracts\MenuController;
+use Nikogin\Framework\Support\View;
 
 class ExampleMenuController extends MenuController
 {
@@ -20,6 +21,6 @@ class ExampleMenuController extends MenuController
 
     public function view(): void
     {
-        echo '<div class="wrap"><h1>' . esc_html($this->pageTitle) . '</h1></div>';
+        View::load('example.example', ['pageTitle' => $this->pageTitle]);
     }
 }

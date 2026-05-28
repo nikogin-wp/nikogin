@@ -3,7 +3,7 @@
 namespace Nikogin\Bootstraps;
 
 use Nikogin\Framework\Contracts\Bootable;
-use Nikogin\Framework\Support\Resources;
+use Nikogin\Framework\Support\View;
 
 class Router implements Bootable
 {
@@ -14,6 +14,6 @@ class Router implements Bootable
 
     public static function run(): void
     {
-        Resources::loadDir(NIKOGIN_DIR . 'routes');
+        View::loadDir(NIKOGIN_DIR . 'routes');
     }
 }
