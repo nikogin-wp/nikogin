@@ -22,9 +22,6 @@ class Activator implements Bootable
      */
     public static function run(): void
     {
-        // Register your service providers
-//        ServiceProviderManager::getInstance()->register();
-
         // Rebuild rewrite rules for CTCs, endpoints, etc.
         flush_rewrite_rules();
     }
