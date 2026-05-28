@@ -23,4 +23,5 @@ return [
     'namespace' => NIKOGIN_NAMESPACE,
     'slug'      => NIKOGIN_SLUG,
     'version'   => NIKOGIN_VERSION,
+    'prefix'    => NIKOGIN_PREFIX,
 ];

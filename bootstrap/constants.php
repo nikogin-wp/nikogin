@@ -23,3 +23,5 @@ if (!defined('NIKOGIN_CONFIG_DIR'))
 if (!defined('NIKOGIN_NAMESPACE'))
     define('NIKOGIN_NAMESPACE', 'ng/v1');
 
+if (!defined('NIKOGIN_PREFIX'))
+    define('NIKOGIN_PREFIX', 'ng');
