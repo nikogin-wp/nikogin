@@ -1,0 +1,28 @@
+{
+  "name": "nikoginwp/nikogin",
+  "description": "Nikogin WordPress plugin skeleton",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Nikola Devic",
+      "email": "devicnikola01@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.2"
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../framework"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Nikogin\\": "app/"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
