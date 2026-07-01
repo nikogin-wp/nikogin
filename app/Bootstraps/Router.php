@@ -4,6 +4,7 @@ namespace Nikogin\Bootstraps;
 
 use Nikogin\Framework\Contracts\Bootable;
 use Nikogin\Framework\Support\View;
+use Nikogin\Managers\ModuleManager;
 
 class Router implements Bootable
 {
@@ -15,5 +16,9 @@ class Router implements Bootable
     public static function run(): void
     {
         View::loadDir(NIKOGIN_DIR . 'routes');
+
+        foreach ((new ModuleManager())->enabledRouteDirs() as $routesDir) {
+            View::loadDir($routesDir);
+        }
     }
 }
