@@ -7,6 +7,8 @@ require_once __DIR__ . '/constants.php';
 use Nikogin\Bootstrap;
 use Nikogin\Framework\Support\Config;
 
-Config::set(require NIKOGIN_CONFIG_DIR . 'config.php');
+foreach (glob(NIKOGIN_CONFIG_DIR . '*.php') as $configFile) {
+    Config::set(require $configFile);
+}
 
 Bootstrap::init();
