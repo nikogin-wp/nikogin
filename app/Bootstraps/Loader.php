@@ -4,6 +4,7 @@ namespace Nikogin\Bootstraps;
 
 use Nikogin\Framework\Contracts\Bootable;
 use Nikogin\Managers\ListenerManager;
+use Nikogin\Managers\ModuleManager;
 use Nikogin\Managers\ProviderManager;
 
 class Loader implements Bootable
@@ -26,6 +27,7 @@ class Loader implements Bootable
     public static function run(): void
     {
         (new ProviderManager())->register();
+        (new ModuleManager())->register();
         (new ListenerManager())->register();
     }
 }
