@@ -9,5 +9,7 @@
  */
 
 return [
-    // 'crm' => false,
+    'modules' => [
+        // 'crm' => false,
+    ],
 ];

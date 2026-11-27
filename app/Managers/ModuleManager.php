@@ -19,27 +19,34 @@ class ModuleManager extends BaseModuleManager
     }
 
     /**
+     * Root directories of currently-enabled modules.
+     *
+     * @return string[]
+     */
+    public function enabledModuleDirs(): array
+    {
+        $dirs = [];
+
+        foreach ($this->discoverModules() as $module) {
+            if (BaseModuleManager::isEnabled($module['class'])) {
+                $dirs[] = $module['dir'];
+            }
+        }
+
+        return array_values(array_unique($dirs));
+    }
+
+    /**
      * routes/ directories belonging to currently-enabled modules only.
      *
      * @return string[]
      */
     public function enabledRouteDirs(): array
     {
-        $dirs = [];
-
-        foreach ($this->discoverModules() as $module) {
-            if (!BaseModuleManager::isEnabled($module['class'])) {
-                continue;
-            }
-
-            $routesDir = $module['dir'] . '/routes';
-
-            if (is_dir($routesDir)) {
-                $dirs[] = $routesDir;
-            }
-        }
-
-        return $dirs;
+        return array_values(array_filter(
+            array_map(fn(string $dir) => $dir . '/routes', $this->enabledModuleDirs()),
+            'is_dir'
+        ));
     }
 
     /**
@@ -47,28 +54,9 @@ class ModuleManager extends BaseModuleManager
      */
     private function discoverModules(): array
     {
-        $modulesDir = dirname(__DIR__) . '/Modules';
-
-        if (!is_dir($modulesDir)) {
-            return [];
-        }
-
-        $modules = [];
-
-        foreach (glob($modulesDir . '/*', GLOB_ONLYDIR) as $moduleDir) {
-            $moduleName = basename($moduleDir);
-
-            foreach (glob($moduleDir . '/Providers/*ServiceProvider.php') as $file) {
-                $className = $this->appNamespace() . '\\Modules\\' . $moduleName . '\\Providers\\' . basename($file, '.php');
-
-                if (!class_exists($className)) {
-                    continue;
-                }
-
-                $modules[] = ['class' => $className, 'dir' => $moduleDir];
-            }
-        }
-
-        return $modules;
+        return BaseModuleManager::discover(
+            dirname(__DIR__) . '/Modules',
+            $this->appNamespace() . '\\Modules'
+        );
     }
 }
