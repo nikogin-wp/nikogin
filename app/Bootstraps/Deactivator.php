@@ -4,6 +4,7 @@ namespace Nikogin\Bootstraps;
 
 
 use Nikogin\Framework\Contracts\Bootable;
+use Nikogin\Managers\CronManager;
 
 class Deactivator implements Bootable
 {
@@ -23,6 +24,8 @@ class Deactivator implements Bootable
      */
     public static function run(): void
     {
+        (new CronManager())->clear();
+
         flush_rewrite_rules();
     }
 }

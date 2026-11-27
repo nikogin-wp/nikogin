@@ -2,7 +2,6 @@
 
 namespace Nikogin\Managers;
 
-use Nikogin\Framework\Abstracts\Provider;
 use Nikogin\Framework\Abstracts\ProviderManager as BaseProviderManager;
 use Nikogin\Framework\Traits\ResolvesAppNamespace;
 
@@ -10,25 +9,14 @@ class ProviderManager extends BaseProviderManager
 {
     use ResolvesAppNamespace;
 
+    /**
+     * Registers every provider in app/Providers (sorted by priority()), then
+     * lets the base class store the plugin version so migrations run once.
+     */
     public function register(): void
     {
-        $instances = [];
+        $this->discover(dirname(__DIR__) . '/Providers', $this->appNamespace() . '\\Providers');
 
-        foreach (glob(dirname(__DIR__) . '/Providers/*.php') as $file) {
-            $className = $this->appNamespace() . '\\Providers\\' . basename($file, '.php');
-
-            if (!class_exists($className) || !is_subclass_of($className, Provider::class)) {
-                continue;
-            }
-
-            $instance = new $className();
-            $instances[] = ['instance' => $instance, 'priority' => $instance->priority()];
-        }
-
-        usort($instances, fn($a, $b) => $a['priority'] <=> $b['priority']);
-
-        foreach ($instances as $item) {
-            $item['instance']->register();
-        }
+        parent::register();
     }
 }

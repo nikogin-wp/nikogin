@@ -3,6 +3,7 @@
 namespace Nikogin\Bootstraps;
 
 use Nikogin\Framework\Contracts\Bootable;
+use Nikogin\Managers\CronManager;
 use Nikogin\Managers\ListenerManager;
 use Nikogin\Managers\ModuleManager;
 use Nikogin\Managers\ProviderManager;
@@ -29,5 +30,6 @@ class Loader implements Bootable
         (new ProviderManager())->register();
         (new ModuleManager())->register();
         (new ListenerManager())->register();
+        (new CronManager())->register();
     }
 }
